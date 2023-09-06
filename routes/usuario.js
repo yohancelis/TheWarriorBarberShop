@@ -11,7 +11,7 @@ route.post('/', usuarioPost)
 
 route.put('/', usuarioPut)
 
-route.put('/', usuarioDelete)
+route.delete('/', usuarioDelete)
 
 
 module.exports = route
