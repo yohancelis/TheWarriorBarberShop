@@ -22,7 +22,7 @@ class server {
     }
 
     routes() {
-        this.app.use(this.clientePath, require('../routes/usuario'))
+        this.app.use(this.clientePath, require('../routes/client'))
     }
 
     //Siempre que hay asincónico hay un await
