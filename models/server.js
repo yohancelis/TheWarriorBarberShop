@@ -11,6 +11,7 @@ class server {
         this.app = express() //Utiliza el express
         this.port = process.env.PORT //Captura la variable del puerto para la conección
         this.usuarioPath = '/api/usuario' //Ruta para la api usuario(Ruta pública)
+        this.middlewares()
         this.conectarDB() //Conectar a la base de datos
         this.routes()
     }
@@ -19,6 +20,11 @@ class server {
         this.app.listen(this.port, () => {
             console.log(`Escuchando por el puerto ${this.port}`)
         })
+    }
+
+    middlewares(){
+        this.app.use(cookieParser()),
+        this.app.use
     }
 
     routes() {
