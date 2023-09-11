@@ -3,7 +3,7 @@ const { Schema, model } = require('mongoose')
 //Esquema de la colección usuario
 const ClienteSchema = Schema({
     //Atributos
-    nombre: {
+    usuario: {
         //Tipo cadena
         type: String,
         //Valor único
@@ -11,7 +11,15 @@ const ClienteSchema = Schema({
         //Requerido
         required: [true, 'El nombre es obligatorio!']
     },
-    password: {
+    nombre: {
+        //Tipo cadena
+        type: String,
+        //Valor único
+        unique: true,
+        //Requerido
+        required: [true, 'El apellido es obligatorio!']
+    },
+    apellido: {
         type: String,
         required: [true, 'La contraseña es obligatoria!'],
         //Longitud mínima en caracteres
@@ -19,17 +27,23 @@ const ClienteSchema = Schema({
         //Longitud máxima en caracteres
         maxlength: [15, 'Debe tener máximo 15 caracteres']
     },
-    rol: {
+    correo: {
+        //Tipo cadena
         type: String,
-        required: true,
-        enumeracion: ['Admin', 'Barbero', 'Cliente']
+        //Valor único
+        unique: true,
+        //Requerido
+        required: [true, 'El correo es obligatorio!']
     },
-    estado: {
-        type: Boolean,
-        //Valor por defecto es 'true'
-        default: true,
-        required: [true, 'El estado es obligatorio']
-    }
+    telefono: {
+        //Tipo cadena
+        type: String,
+        //Valor único
+        unique: true,
+        //Requerido
+        required: [true, 'El telefono es obligatorio!']
+    },
+
 })
 
 //Exportar la funcipon UsuarioSchema

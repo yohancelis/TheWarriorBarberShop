@@ -34,11 +34,11 @@ const clientePost = async(req, res) => {
 //Modifcación
 const clientePut = async(req, res = response) => {
 
-    const {nombre, password, rol, estado} = req.query
+    const {usuario,nombre, apellido, correo, telefono} = req.query
     let mensaje = 'Modificación exitosa'
     try{
-         await Cliente.findOneAndUpdate({nombre: nombre}, 
-            {password: password, rol:rol, estado:estado})
+         await Cliente.findOneAndUpdate({usuario: usuario}, 
+            {nombre:nombre, apellido:apellido,correo:correo, telefono:telefono,})
     }
     catch(error){
         mensaje = 'Se presentaron problemas en la modificación.'
