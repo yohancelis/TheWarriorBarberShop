@@ -26,7 +26,7 @@ class server {
         this.app.use(cookieParser()),
         this.app.use(express.static(__dirname + "/public"))
         this.app.use(cors())
-        this.app.use(bodyparser.json)
+        this.app.use(bodyParser.json)
     }
 
     routes() {
