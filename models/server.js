@@ -11,6 +11,7 @@ class server {
         this.app = express() //Utiliza el express
         this.port = process.env.PORT //Captura la variable del puerto para la conección
         this.usuarioPath = '/api/usuario' //Ruta para la api usuario(Ruta pública)
+        this.authPath = '/api/auth'
         this.middlewares()
         this.conectarDB() //Conectar a la base de datos
         this.routes()
@@ -31,6 +32,8 @@ class server {
 
     routes() {
         this.app.use(this.usuarioPath, require('../routes/usuario'))
+        this.app.use(this.authPath, require('../routes/auth'))
+
     }
 
     //Siempre que hay asincónico hay un await

@@ -1,4 +1,4 @@
-const {response} = require('express')
+const {response} = require('express')  // (express)para desarrollar aplicaciones o para trabajar en node
 const bcrypt = require ('bcrypt') //encriptar
 
 
