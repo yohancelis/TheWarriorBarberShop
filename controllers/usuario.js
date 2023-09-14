@@ -1,4 +1,5 @@
 const {response} = require('express')
+const bcrypt = require ('bcrypt') //encriptar
 
 //Importación de los modelos
 const Usuario = require('../models/usuario')
@@ -21,6 +22,8 @@ const usuarioPost = async(req, res) => {
     const body = req.body //Captura de atributos
     try {
         const usuario = new Usuario(body) //Instanciando el objeto
+        const salt = 10 //numero de vueltas
+        usuario.password = bcrypt.hashSync(body.password, salt)
         await usuario.save() //Inserta en la colección
     } catch (error) {
         mensaje = error
